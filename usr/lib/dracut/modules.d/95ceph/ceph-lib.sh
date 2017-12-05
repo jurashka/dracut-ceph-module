@@ -31,5 +31,5 @@ ceph_to_var() {
     if [ ! "$cephuser" -o ! "$cephpass" ]; then
 	die "For CEPH support you need to specify a cephuser and cephpass either in the cephuser and cephpass commandline parameters or in the root= CEPH URL."
     fi
-    options="name=$cephuser,secret=$cephpass"
+    options="name=$cephuser,secret=$cephpass,noatime,nodiratime"
 }
