@@ -7,5 +7,5 @@ In /etc/dracut.conf add:
 Append to PXE:
 <p>root=ceph://name:secret@10.11.23.1:6789,10.11.23.2:6789,10.11.23.3:6789:/centos7/root</p>
 or
-<p>root=ceph://name:secret@10.11.23.1:6789,10.11.23.2:6789,10.11.23.3:6789:/POOL/rbd_image</p>
+<p>root=rbd://name:secret@10.11.23.1:6789,10.11.23.2:6789,10.11.23.3:6789:/POOL/rbd_image</p>
 
