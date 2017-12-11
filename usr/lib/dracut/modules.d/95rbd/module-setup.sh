@@ -10,7 +10,7 @@ depends() {
 }
 
 installkernel() {
-    instmods rbd
+    instmods rbd rootfs-block
 }
 
 install() {
