@@ -1,6 +1,6 @@
 Copy content usr/lib/dracut/modules.d to /usr/lib/dracut/modules.d/
 <p><b>1) CEPH </b></p>
-Install ceph-common
+Install ceph-common<br>
 In /etc/dracut.conf add:
 <p>filesystems+="ceph"</p>
 Append to PXE:
