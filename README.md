@@ -1,3 +1,5 @@
+#GPLv3
+
 Copy content of usr/lib/dracut/modules.d to /usr/lib/dracut/modules.d/
 <p><b>1) CEPH </b></p>
 Install ceph-common<br>
