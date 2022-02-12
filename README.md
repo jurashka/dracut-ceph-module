@@ -25,4 +25,7 @@ In /etc/dracut.conf add:
 Append to PXE:
 <p>root=http://10.20.0.2/root/root.tar.gz</p>
 
+root.tar.gz might be created with 
+tar --exclude='./tmp/*' --exclude='./var/log/*' --exclude='./dev/*' --exclude='./sys/*' --exclude='./proc/*' -czf /httproot/root.tar.gz --one-file-system -C /noderoot/ ./
+
 
