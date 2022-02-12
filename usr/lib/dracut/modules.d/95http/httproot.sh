@@ -11,8 +11,10 @@ NEWROOT="$3"
 
 echo URL: $root
 
-mount -t tmpfs -o size=10g,nodiratime,noatime tmpfs $NEWROOT || error 
-curl -s $root -o - | pigz -d | tar -x -f - -C $NEWROOT || error
+mount -t tmpfs -o size=10g,nodiratime,noatime tmpfs $NEWROOT || die "tmpfs mount failed"
+curl -s $root -o - | pigz -d | tar -x -f - -C $NEWROOT || die "Get and expand rootfs failed"
+
+[ -e /dev/root ] || ln -s null /dev/root
 
 # inject new exit_if_exists
 echo 'settle_exit_if_exists="--exit-if-exists=/dev/root"; rm -f -- "$job"' > $hookdir/initqueue/http.sh
