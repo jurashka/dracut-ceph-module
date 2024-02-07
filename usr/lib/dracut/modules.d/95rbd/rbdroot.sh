@@ -21,7 +21,12 @@ echo rbd: $pool/$name
 # Linux 4.15 defaulted single_major to true in torvalds/linux@3cfa3b1, 
 # which means you should use /sys/bus/rbd/add_single_major now. 
 # You can revert to the old behavior with e.g. modprobe rbd single_major=0.
-echo "$server $options $pool $name" > /sys/bus/rbd/add_single_major
+if [ -f /sys/bus/rbd/add_single_major ] ; then
+    sysdev="/sys/bus/rbd/add_single_major"
+else 
+    sysdev="/sys/bus/rbd/add"
+fi
+echo "$server $options $pool $name" > $sysdev
 
 mount /dev/rbd0 $NEWROOT -o noatime,nodiratime && { [ -e /dev/root ] || ln -s null /dev/root ; }
 
