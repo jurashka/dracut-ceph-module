@@ -17,9 +17,6 @@ filesystems+="ext4 xfs"</p>
 Append to PXE:
 <p>root=rbd://name:secret@10.11.23.1:6789,10.11.23.2:6789,10.11.23.3:6789:/POOL/rbd_image</p>
 
-<p>For kernel < 4.15 please check<br>
-https://github.com/jurashka/dracut-ceph-module/commit/0f034b759b5d61308bbc9d23693486b5fed08f47
-
 <p><b>3) HTTP</b></p>
 In initramfs you should have: curl,pigz,tar<br>
 In /etc/dracut.conf add:
