@@ -10,12 +10,15 @@ Append to PXE:
 <p>root=ceph://name:secret@10.11.23.1:6789,10.11.23.2:6789,10.11.23.3:6789:/centos7/root</p>
 
 <p><b>2) RBD</b></p>
-In /etc/dracut.conf add:
-<p>add_drivers+="rbd"</p>
-<p>filesystems+="ext4 xfs"</p>
-<p>Regenerate initramfs</p>
+In /etc/dracut.conf add: <br>
+<p>add_drivers+="rbd" <br>
+filesystems+="ext4 xfs"</p>
+<p></p>Regenerate initramfs</p>
 Append to PXE:
 <p>root=rbd://name:secret@10.11.23.1:6789,10.11.23.2:6789,10.11.23.3:6789:/POOL/rbd_image</p>
+
+<p>For kernel < 4.15 please check<br>
+https://github.com/jurashka/dracut-ceph-module/commit/0f034b759b5d61308bbc9d23693486b5fed08f47
 
 <p><b>3) HTTP</b></p>
 In initramfs you should have: curl,pigz,tar<br>
